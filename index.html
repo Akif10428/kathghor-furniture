@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kathghor Furniture demo: explore solid wood beds, sofas, dining sets and made-to-measure furniture for Dhaka homes.">
+<title>Kathghor Furniture — Solid wood furniture made to your measurements</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Hind+Siliguri:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#10171b;--ink:#eaf0f2;--muted:#b8c6cc;--accent:#d9a062;--accent2:#e8b87c;--card:#1b272d;--line:#33444d;--brass:#e0b052;--on-accent:#1a1209;
+  color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Hind Siliguri",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Hind Siliguri",system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+body>*:not(#bg):not(script){position:relative;z-index:1}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.3rem;text-decoration:none}
+nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;padding:40px 0 70px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.3rem);font-weight:800;letter-spacing:-.025em}
+.hero p{max-width:46ch;color:var(--muted);font-size:1.1rem;margin:20px 0 28px}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);padding:13px 24px;border-radius:8px;text-decoration:none;font-weight:600;border:0;cursor:pointer;font:600 1rem "Hind Siliguri",sans-serif}
+.btn:hover{background:var(--accent2)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink);margin-left:8px;padding:11px 22px}
+.spec{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--brass);border-radius:4px;padding:24px;max-width:320px;justify-self:center;box-shadow:0 14px 30px -14px rgba(0,0,0,.7)}
+.spec h3{font-size:1.5rem;margin-bottom:12px}
+.spec dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:.96rem}
+.spec dt{color:var(--muted)}.spec dd{margin:0;font-weight:600;text-align:right}
+.band{background:var(--accent);color:var(--on-accent);padding:20px 0}
+.band ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px 28px;font-weight:500}
+section{padding:64px 0}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:8px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 26px;max-width:58ch}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.filters button{font:500 1rem "Hind Siliguri",sans-serif;padding:8px 18px;border-radius:6px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:18px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.wood{height:92px;display:flex;align-items:flex-end;padding:10px 14px;font:800 .95rem "Bricolage Grotesque",sans-serif;color:rgba(255,255,255,.92);background-image:repeating-linear-gradient(100deg,rgba(0,0,0,.07) 0 2px,transparent 2px 14px)}
+.item .body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:3px;flex:1}
+.item h3{font-size:1.2rem}
+.en{color:var(--muted);font-size:.92rem}
+.meta{font-size:.9rem;margin-top:6px}
+.price{font:800 1.4rem "Bricolage Grotesque",sans-serif;margin-top:auto;padding-top:12px}
+.item .btn{padding:9px 16px;font-size:.95rem;text-align:center;margin-top:8px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px}
+.steps li::before{content:counter(s);display:block;font:800 2rem "Bricolage Grotesque",sans-serif;color:var(--brass);margin-bottom:4px}
+.steps h3{font-size:1.15rem;margin-bottom:4px}
+.steps p{margin:0;color:var(--muted);font-size:.96rem}
+.visit{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.visit address{font-style:normal}
+footer{background:var(--bg);padding:28px 0 64px;color:var(--muted);font-size:.92rem}
+@media (max-width:760px){.hero,.visit .wrap{grid-template-columns:1fr}nav a:not(:last-child){display:none}}
+
+#bg{opacity:.38}header{gap:16px}section[id]{scroll-margin-top:24px}.demo-note{background:var(--accent);color:var(--on-accent);text-align:center;padding:8px 20px;font-size:.9rem}dialog{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:28px;width:min(480px,calc(100% - 32px))}dialog::backdrop{background:rgba(0,0,0,.75)}dialog p{color:var(--muted)}#requestSummary{white-space:pre-line}.item .btn{width:100%}@media(max-width:420px){nav a{margin-left:8px}.logo{font-size:1.2rem}.hero{padding-top:28px;gap:28px}.hero .btn{margin:0 6px 10px 0}.grid{grid-template-columns:1fr}.spec{width:100%}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="demo-note">Furniture website demo · Sample prices and showroom · No orders or payments collected</div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#top">Kathghor</a>
+    <nav><a href="#shop">Shop</a><a href="#custom">Custom order</a><a href="#visit">Showroom</a></nav>
+  </header>
+  <div class="hero" id="top">
+    <div>
+      <h1>Solid wood furniture, built to your room.</h1>
+      <p>Beds, sofas, dining sets and wardrobes made in our own workshop from segun and mehogani. Tell us your measurements and we build to fit.</p>
+      <a class="btn" href="#shop">See the collection</a><a class="btn ghost" href="#custom">Order custom size</a>
+    </div>
+    <div class="spec" aria-label="Sample order sheet">
+      <h3>Queen bed</h3>
+      <dl><dt>Wood</dt><dd>Segun (teak)</dd><dt>Size</dt><dd>6 × 7 ft</dd><dt>Finish</dt><dd>Walnut polish</dd><dt>Ready in</dt><dd>21 days</dd><dt>Warranty</dt><dd>5 years</dd></dl>
+    </div>
+  </div>
+</div>
+<div class="band"><div class="wrap"><ul><li>Delivery and fitting in Dhaka</li><li>5-year frame warranty</li><li>Pay 50% to start, 50% on delivery</li></ul></div></div>
+
+<section id="shop"><div class="wrap">
+  <h2>Ready-to-order collection</h2>
+  <p class="sub">Sample prices are for the standard size. Preview a request for any item.</p>
+  <div class="filters" id="filters" role="group" aria-label="Filter by room"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="custom" style="padding-top:0"><div class="wrap">
+  <h2>How a custom order works</h2>
+  <p class="sub">Most of our beds and wardrobes are made to measure. This is the path from message to delivery.</p>
+  <ol class="steps">
+    <li><h3>Send your measurements</h3><p>Share the wall width and height, or visit us and we will measure your room.</p></li>
+    <li><h3>Approve the design</h3><p>We send a drawing with the wood, finish and price. Pay 50% to start.</p></li>
+    <li><h3>We build it</h3><p>Our carpenters build in the workshop. You get photos before polishing.</p></li>
+    <li><h3>Delivery and fitting</h3><p>We deliver, assemble and fit it in your room, then collect the balance.</p></li>
+  </ol>
+</div></section>
+
+<section class="visit" id="visit"><div class="wrap">
+  <div><h2>Visit the showroom</h2><p class="sub">Sit on the sofas and check the wood before you order.</p>
+    <address>Furniture Market Road, Dhaka<br>Open daily, 10:00 am – 8:00 pm<br>Friday: 3:00 pm – 8:00 pm</address></div>
+  <div><h2>Order by message</h2><p class="sub">Preview a custom furniture enquiry. A real business contact is needed to send requests.</p>
+    <a class="btn" id="waGeneral" href="#" target="_blank" rel="noopener">Preview custom request</a></div>
+</div></section>
+<dialog id="requestDialog" aria-labelledby="requestTitle"><h2 id="requestTitle">Your furniture request</h2><p id="requestSummary"></p><p>This is a demo. Your request has not been sent, and no payment is required.</p><form method="dialog"><button class="btn">Close preview</button></form></dialog>
+<footer><div class="wrap">© 2026 Kathghor Furniture. Sample content: replace the name, address, phone, items and prices with your own.</div></footer>
+
+<script>
+var PHONE="";
+var items=[
+{bn:"সেগুন খাট",en:"Segun queen bed",cat:"Bedroom",wood:"Segun",size:"6 × 7 ft",price:38500,c:"#a9743f"},
+{bn:"ড্রয়ার খাট",en:"Storage bed with drawers",cat:"Bedroom",wood:"Mehogani",size:"6 × 7 ft",price:46000,c:"#7a3f2b"},
+{bn:"ড্রেসিং টেবিল",en:"Dressing table with mirror",cat:"Bedroom",wood:"Segun",size:"3.5 ft wide",price:14500,c:"#a9743f"},
+{bn:"সোফা (৩ সিটার)",en:"3-seater sofa",cat:"Living",wood:"Segun frame",size:"7 ft",price:42000,c:"#5b6b73"},
+{bn:"সেন্টার টেবিল",en:"Centre table",cat:"Living",wood:"Mehogani",size:"4 × 2 ft",price:9800,c:"#7a3f2b"},
+{bn:"টিভি ক্যাবিনেট",en:"TV cabinet",cat:"Living",wood:"Segun",size:"6 ft",price:16500,c:"#a9743f"},
+{bn:"ডাইনিং সেট",en:"6-seater dining set",cat:"Dining",wood:"Segun",size:"5 × 3 ft table",price:52000,c:"#8c5a30"},
+{bn:"ডাইনিং চেয়ার",en:"Dining chair (each)",cat:"Dining",wood:"Segun",size:"Standard",price:4200,c:"#8c5a30"},
+{bn:"পড়ার টেবিল",en:"Study table with shelf",cat:"Study",wood:"Mehogani",size:"4 × 2 ft",price:12500,c:"#7a3f2b"},
+{bn:"অফিস চেয়ার",en:"Office chair",cat:"Study",wood:"Steel and mesh",size:"Adjustable",price:8900,c:"#3d4a52"},
+{bn:"আলমারি (৩ দরজা)",en:"3-door wardrobe",cat:"Storage",wood:"Segun",size:"6 × 7 ft",price:44000,c:"#a9743f"},
+{bn:"বইয়ের শেলফ",en:"Bookshelf",cat:"Storage",wood:"Mehogani",size:"3 × 6 ft",price:11800,c:"#7a3f2b"}
+];
+var cats=["All","Bedroom","Living","Dining","Study","Storage"],cur="All";
+var f=document.getElementById("filters"),g=document.getElementById("grid");
+function bn(n){return String(n).replace(/\d/g,function(d){return "০১২৩৪৫৬৭৮৯"[d]}).replace(/\B(?=(\d{3})+$)/g,",")}
+function fmt(n){return String(n).replace(/\B(?=(\d{2})*\d{3}$)/g,",")}
+function wa(t){return "https://wa.me/"+PHONE+"?text="+encodeURIComponent(t)}
+function draw(){
+  f.innerHTML="";
+  cats.forEach(function(c){var b=document.createElement("button");b.type="button";b.textContent=c;b.setAttribute("aria-pressed",c===cur);b.onclick=function(){cur=c;draw();[...f.querySelectorAll("button")].find(x=>x.textContent===c).focus()};f.appendChild(b)});
+  g.innerHTML="";
+  items.filter(function(p){return cur==="All"||p.cat===cur}).forEach(function(p){
+    var d=document.createElement("article");d.className="item";
+    d.innerHTML='<div class="wood" style="background-color:'+p.c+'"></div><div class="body"><h3></h3><span class="en"></span><span class="meta"></span><span class="price"></span><button class="btn" type="button">Preview request</button></div>';
+    d.querySelector(".wood").textContent=p.wood;
+    d.querySelector("h3").textContent=p.bn;
+    d.querySelector(".en").textContent=p.en;
+    d.querySelector(".meta").textContent=p.size;
+    d.querySelector(".price").textContent="৳"+fmt(p.price);
+    d.querySelector("button").setAttribute("aria-label","Preview request for "+p.en);
+    d.querySelector("button").onclick=function(){previewRequest("Item: "+p.en+"\nWood: "+p.wood+"\nStandard size: "+p.size+"\nSample price: ৳"+fmt(p.price)+"\nDelivery area: [your area in Dhaka]")};
+    g.appendChild(d);
+  });
+}
+function previewRequest(message){document.getElementById("requestSummary").textContent=message;document.getElementById("requestDialog").showModal()}
+document.getElementById("waGeneral").removeAttribute("target");
+document.getElementById("waGeneral").onclick=function(e){e.preventDefault();previewRequest("Hello, I would like a custom furniture quote.\nItem: [furniture type]\nMeasurements: [width × depth × height]\nWood and finish: [your preference]\nDelivery area: [your area in Dhaka]")};
+draw();
+
+/* room background: a ceiling spotlight swings and lights each piece of furniture in turn */
+(function(){
+var cv=document.getElementById("bg"),cx=cv.getContext("2d"),W,H,t=0;
+var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+var FH=64,DIM={a:"#3d505c",b:"#4c6270",c:"#62798a"};
+var IT=[
+{k:"wardrobe",w:1.3,lit:{a:"#b07a42",b:"#7d4f27",c:"#f0c05a"}},
+{k:"bed",w:2.4,lit:{a:"#8c5a30",b:"#b07a42",c:"#e6eef1"}},
+{k:"sofa",w:2.2,lit:{a:"#6a8ea0",b:"#4f6f7f",c:"#f0c05a"}},
+{k:"dining",w:2.0,lit:{a:"#b07a42",b:"#7d4f27",c:"#f0c05a"}},
+{k:"shelf",w:1.1,lit:{a:"#8a4a33",b:"#5a2c1d",c:"#f0c05a"}},
+{k:"chair",w:1.2,lit:{a:"#7f9a5c",b:"#5b6e43",c:"#ffd88a"}}
+];
+var L={s:30,fy:0},th=0,om=0,al=.15,idx=0,dir=1,timer=0;
+function size(){var d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);lay()}
+function lay(){
+  var gap=.3,tot=0;IT.forEach(function(i){tot+=i.w});tot+=gap*(IT.length-1);
+  L.s=Math.min(W*.98/tot,(H-FH)*.36);L.fy=H-FH*.5;
+  var x=(W-tot*L.s)/2;IT.forEach(function(i){i.x=x;i.cx=x+i.w*L.s/2;i.ih=2.4*L.s*(i.k==="bed"?.55:i.k==="sofa"?.5:i.k==="dining"?.5:i.k==="shelf"?.85:1);x+=(i.w+gap)*L.s})
+}
+size();addEventListener("resize",size);
+function fur(it,p,lit){
+  var s=L.s,ox=it.x,fy=L.fy;
+  cx.fillStyle="rgba(0,0,0,.4)";cx.beginPath();cx.ellipse(ox+it.w*s/2,fy+3,it.w*s*.55,7,0,0,6.283);cx.fill();
+  cx.strokeStyle=lit?"rgba(255,244,214,.6)":"rgba(170,200,215,.45)";cx.lineWidth=1.2;
+  function r(c,x,y,w,h){cx.fillStyle=c;cx.fillRect(ox+x*s,fy+y*s,w*s,h*s);cx.strokeRect(ox+x*s,fy+y*s,w*s,h*s)}
+  switch(it.k){
+  case "wardrobe":r(p.a,0,-2.3,1.3,2.25);r(p.b,-.04,-2.38,1.38,.08);r(p.b,.63,-2.3,.04,2.25);r(p.c,.55,-1.3,.05,.3);r(p.c,.72,-1.3,.05,.3);r(p.b,.05,-.06,.16,.06);r(p.b,1.09,-.06,.16,.06);break;
+  case "bed":r(p.a,0,-1.3,.14,1.3);r(p.b,.14,-.5,2.26,.22);r(p.b,.14,-.28,.1,.28);r(p.b,2.3,-.28,.1,.28);r(p.c,.14,-.72,2.2,.22);r(p.c,.26,-.9,.55,.18);r(p.a,1.0,-.8,1.35,.1);break;
+  case "sofa":r(p.a,.15,-1.05,1.9,.6);r(p.b,.1,-.6,2.0,.32);r(p.a,0,-.85,.28,.85);r(p.a,1.92,-.85,.28,.85);r(p.c,.1,-.08,.08,.08);r(p.c,2.02,-.08,.08,.08);r(p.c,1.08,-.6,.03,.32);break;
+  case "dining":r(p.a,.25,-.85,1.5,.1);r(p.b,.35,-.75,.08,.75);r(p.b,1.57,-.75,.08,.75);r(p.c,.9,-.97,.2,.12);
+    r(p.b,0,-.95,.07,.5);r(p.b,0,-.45,.4,.07);r(p.b,.02,-.38,.05,.38);r(p.b,.33,-.38,.05,.38);
+    r(p.b,1.93,-.95,.07,.5);r(p.b,1.6,-.45,.4,.07);r(p.b,1.62,-.38,.05,.38);r(p.b,1.93,-.38,.05,.38);break;
+  case "shelf":r(p.a,0,-2,1.1,2);r(p.b,.06,-1.94,.98,1.88);
+    [-1.45,-.95,-.45,-.05].forEach(function(yb,i){r(p.a,.06,yb,.98,.05);for(var j=0;j<6;j++){var bh=.28+((i+j)%3)*.07;r(j%2?p.c:p.a,.11+j*.15,yb-bh,.1,bh)}});break;
+  case "chair":r(p.a,.05,-1.0,.75,.5);r(p.b,0,-.5,.85,.32);r(p.a,0,-.7,.14,.7);r(p.a,.71,-.7,.14,.7);r(p.c,.08,-.08,.06,.08);r(p.c,.71,-.08,.06,.08);
+    r(p.c,1.0,-2.3,.04,2.3);r(p.c,.9,-.05,.24,.05);
+    cx.fillStyle=p.c;cx.beginPath();cx.moveTo(ox+.88*s,fy-2.05*s);cx.lineTo(ox+1.16*s,fy-2.05*s);cx.lineTo(ox+1.26*s,fy-2.4*s);cx.lineTo(ox+.78*s,fy-2.4*s);cx.closePath();cx.fill();break;
+  }
+}
+function scene(lit){
+  var g=cx.createLinearGradient(0,0,0,H);
+  if(lit){g.addColorStop(0,"#33454e");g.addColorStop(1,"#4a6571")}else{g.addColorStop(0,"#0d1418");g.addColorStop(1,"#162129")}
+  cx.fillStyle=g;cx.fillRect(0,0,W,H);
+  var y=H-FH,fg=cx.createLinearGradient(0,y,0,H);
+  if(lit){fg.addColorStop(0,"#b4824f");fg.addColorStop(1,"#7d5129")}else{fg.addColorStop(0,"#1f150d");fg.addColorStop(1,"#120c07")}
+  cx.fillStyle=fg;cx.fillRect(0,y,W,FH);
+  cx.fillStyle=lit?"#6f858f":"#0b1115";cx.fillRect(0,y-8,W,8);
+  cx.strokeStyle="rgba(0,0,0,.25)";cx.lineWidth=1.5;cx.beginPath();
+  for(var x=-60;x<W+60;x+=96){cx.moveTo(x,y);cx.lineTo(x-34,H)}
+  cx.moveTo(0,y+FH*.5);cx.lineTo(W,y+FH*.5);cx.stroke();
+  IT.forEach(function(it){fur(it,lit?it.lit:DIM,lit)});
+}
+var last=0;
+function frame(now){
+  var px=W/2,py=26,n=IT.length,dt=last?Math.min((now-last)/1000,.05):.016;last=now||0;
+  cx.clearRect(0,0,W,H);scene(false);
+  {
+    timer+=dt;if(timer>(still?5:3.4)){timer=0;idx+=dir;if(idx>=n){dir=-1;idx=n-2}if(idx<0){dir=1;idx=1}}
+    var it=IT[idx],dx=it.cx-px,dy=L.fy-it.ih*.5-py,tt=Math.atan2(dx,dy),at=Math.atan2(it.w*L.s*.62+12,Math.hypot(dx,dy));
+    om+=(-(still?3:14)*(th-tt)-(still?3.6:2.2)*om)*dt;th+=om*dt;al+=(at-al)*.08;
+    var Ln=Math.hypot(W,H)*1.2,x1=px+Math.sin(th-al)*Ln,y1=py+Math.cos(th-al)*Ln,x2=px+Math.sin(th+al)*Ln,y2=py+Math.cos(th+al)*Ln;
+    cx.save();cx.beginPath();cx.moveTo(px,py);cx.lineTo(x1,y1);cx.lineTo(x2,y2);cx.closePath();cx.clip();
+    cx.globalAlpha=.9;scene(true);cx.globalAlpha=1;
+    var hz=cx.createLinearGradient(px,py,px+Math.sin(th)*Ln*.7,py+Math.cos(th)*Ln*.7);
+    hz.addColorStop(0,"rgba(255,232,180,.28)");hz.addColorStop(1,"rgba(255,232,180,.03)");
+    cx.fillStyle=hz;cx.fillRect(0,0,W,H);cx.restore();
+    t+=dt;
+  }
+  /* ceiling track and spotlight head */
+  cx.fillStyle="#0b1115";cx.fillRect(px-W*.3,0,W*.6,6);
+  cx.save();cx.translate(px,py);cx.rotate(-th);
+  cx.fillStyle="#c8963e";cx.fillRect(-9,0,18,24);cx.fillStyle="#ffe7b0";cx.beginPath();cx.ellipse(0,24,9,3,0,0,6.283);cx.fill();
+  cx.restore();
+  cx.fillStyle="#8a6a2a";cx.fillRect(px-2,6,4,py-6);
+  if(!still)requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
+
